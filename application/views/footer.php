@@ -88,12 +88,17 @@
 <script src="<?php echo base_url('assets/js/rangeslider.min.js'); ?>"></script>
 
 <script src="<?php echo base_url('assets/js/main.js'); ?>"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js"></script>
 <script>
-  $("#hide").hide();
-  $("#show").click(function(){
-      $("#hide").show();
-  });
+     $("#hide").hide();
+      $(document).ready(function() {
+    $("#show").click(function(e) {
+        $("#hide").toggle();
+        e.preventDefault();
+    });
+});
+
+
 </script>
 </body>
 </html>

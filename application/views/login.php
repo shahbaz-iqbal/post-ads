@@ -25,14 +25,22 @@
           <div class="col-md-7 mb-5"  data-aos="fade">
 
             
-
-            <form action="#" class="p-5 bg-white">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <?php if ($this->session->flashdata('add')) { ?>
+                            <p class="alert alert-success"><?php echo $this->session->flashdata('add'); ?></p>
+                        <?php } else if ($this->session->flashdata('error')) { ?>
+                            <p class="alert alert-danger"><?php echo $this->session->flashdata('error'); ?></p>
+                        <?php } ?>
+                    </div>
+                </div>
+              <form action="<?php echo base_url('welcome/login_user'); ?>" method="post" class="p-5 bg-white">
              
               <div class="row form-group">
                 
                 <div class="col-md-12">
                   <label class="text-black" for="email">Email</label> 
-                  <input type="email" id="email" class="form-control">
+                  <input type="email" name="email" id="email" class="form-control">
                 </div>
               </div>
 
@@ -40,13 +48,13 @@
                 
                 <div class="col-md-12">
                   <label class="text-black" for="subject">Password</label> 
-                  <input type="password" id="subject" class="form-control">
+                  <input type="password" name="pass" id="subject" class="form-control">
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-12">
-                  <p>No account yet? <a href="register.html">Register</a></p>
+                    <p>No account yet? <a href="<?php echo base_url('Welcome/register'); ?>">Register</a></p>
                 </div>
               </div>
 
@@ -65,63 +73,6 @@
       </div>
     </div>
 
-    
-    <div class="newsletter bg-primary py-5">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-6">
-            <h2>Newsletter</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          </div>
-          <div class="col-md-6">
-            
-            <form class="d-flex">
-              <input type="text" class="form-control" placeholder="Email">
-              <input type="submit" value="Subscribe" class="btn btn-white"> 
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    
-    <footer class="site-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-9">
-            <div class="row">
-              <div class="col-md-6">
-                <h2 class="footer-heading mb-4">About</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident rerum unde possimus molestias dolorem fuga, illo quis fugiat!</p>
-              </div>
-              
-              <div class="col-md-3">
-                <h2 class="footer-heading mb-4">Navigations</h2>
-                <ul class="list-unstyled">
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Services</a></li>
-                  <li><a href="#">Testimonials</a></li>
-                  <li><a href="#">Contact Us</a></li>
-                </ul>
-              </div>
-              <div class="col-md-3">
-                <h2 class="footer-heading mb-4">Follow Us</h2>
-                <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <form action="#" method="post">
-              <div class="input-group mb-3">
-                <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Search products..." aria-label="Enter Email" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                  <button class="btn btn-primary text-white" type="button" id="button-addon2">Search</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
+
+
 <?php $this->load->view('footer') ?>

@@ -17,395 +17,7 @@
         <link rel="stylesheet" href="<?php echo base_url('assets/css/aos.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url('assets/css/rangeslider.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>">
-
-        <style>
-            .form-box {
-                padding-top: 40px;
-                padding-bottom: 40px;
-
-                background: rgb(234,88,4); /* Old browsers */
-                background: -moz-linear-gradient(top,  rgba(234,88,4,1) 0%, rgba(234,40,3,1) 51%, rgba(234,88,4,1) 100%); /* FF3.6-15 */
-                background: -webkit-linear-gradient(top,  rgba(234,88,4,1) 0%,rgba(234,40,3,1) 51%,rgba(234,88,4,1) 100%); /* Chrome10-25,Safari5.1-6 */
-                background: linear-gradient(to bottom,  rgba(234,88,4,1) 0%,rgba(234,40,3,1) 51%,rgba(234,88,4,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ea5804', endColorstr='#ea5804',GradientType=0 ); /* IE6-9 */
-            }
-
-            .form-wizard {
-                padding: 25px; 
-                background: #fff;
-                -moz-border-radius: 4px; 
-                -webkit-border-radius: 4px; 
-                border-radius: 4px; 
-                box-shadow: 0px 0px 6px 3px #777;
-                font-family: 'Roboto', sans-serif;
-                font-size: 16px;
-                font-weight: 300;
-                color: #888;
-                line-height: 30px;
-                text-align: center;
-            }
-
-            .form-wizard strong { font-weight: 500; }
-
-            .form-wizard a, .form-wizard a:hover, .form-wizard a:focus {
-                color: #ea2803;
-                text-decoration: none;
-                -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
-            }
-
-            .form-wizard h1, .form-wizard h2 {
-                margin-top: 10px;
-                font-size: 38px;
-                font-weight: 100;
-                color: #555;
-                line-height: 50px;
-            }
-
-            .form-wizard h3 {
-                font-size: 25px;
-                font-weight: 300;
-                color: #ea2803;
-                line-height: 30px;
-                margin-top: 0; 
-                margin-bottom: 5px; 
-                text-transform: uppercase; 
-            }
-
-            .form-wizard h4 {
-                float:left;
-                font-size: 20px;
-                font-weight: 300;
-                color: #ea2803;
-                line-height: 26px;
-                width:100%;
-            }
-            .form-wizard h4  span{
-                float:right;
-                font-size: 18px;
-                font-weight: 300;
-                color: #555;
-                line-height: 26px;
-            }
-
-            .form-wizard table tr th{font-weight:normal;}
-
-            .form-wizard img { max-width: 100%; }
-
-            .form-wizard ::-moz-selection { background: #ea2803; color: #fff; text-shadow: none; }
-            .form-wizard ::selection { background: #ea2803; color: #fff; text-shadow: none; }
-
-
-            .form-control {
-                height: 44px;
-                width:100%;
-                margin: 0;
-                padding: 0 20px;
-                vertical-align: middle;
-                background: #fff;
-                border: 1px solid #ddd;
-                font-family: 'Roboto', sans-serif;
-                font-size: 16px;
-                font-weight: 300;
-                line-height: 44px;
-                color: #888;
-                -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
-                -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
-                -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
-            }
-            .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"], .radio input[type="radio"], .radio-inline input[type="radio"] {
-                position: absolute;
-                margin-top: 9px;
-                margin-left: -20px;
-            }
-
-            .form-control option:hover, .form-control option:checked  {
-                box-shadow: 0 0 10px 100px #ea2803 inset;
-            }
-
-            .form-control:focus {
-                outline: 0;
-                background: #fff;
-                border: 1px solid #ccc;
-                -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
-            }
-
-            .form-control:-moz-placeholder { color: #888; }
-            .form-control:-ms-input-placeholder { color: #888; }
-            .form-control::-webkit-input-placeholder { color: #888; }
-
-            .form-wizard label { font-weight: 300; }
-            .form-wizard label span { color:#ea2803; }
-
-
-            .form-wizard .btn {
-                min-width: 105px;
-                height: 40px;
-                margin: 0;
-                padding: 0 20px;
-                vertical-align: middle;
-                border: 0;
-                font-family: 'Roboto', sans-serif;
-                font-size: 16px;
-                font-weight: 300;
-                line-height: 40px;
-                color: #fff;
-                -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
-                text-shadow: none;
-                -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
-                -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
-            }
-
-            .form-wizard .btn:hover {
-                background:#f34727; 
-                color: #fff; 
-            }
-            .form-wizard .btn:active { 
-                outline: 0; 
-                background:#f34727; 
-                color: #fff; 
-                -moz-box-shadow: none; 
-                -webkit-box-shadow: none; 
-                box-shadow: none; 
-            }
-            .form-wizard .btn:focus,
-            .form-wizard .btn:active:focus,
-            .form-wizard .btn.active:focus { 
-                outline: 0; 
-                background:#f34727; 
-                color: #fff; 
-            }
-
-            .form-wizard .btn.btn-next,
-            .form-wizard .btn.btn-next:focus,
-            .form-wizard .btn.btn-next:active:focus, 
-            .form-wizard .btn.btn-next.active:focus { 
-                background: #ea2803; 
-            }
-
-            .form-wizard .btn.btn-submit,
-            .form-wizard .btn.btn-submit:focus,
-            .form-wizard .btn.btn-submit:active:focus, 
-            .form-wizard .btn.btn-submit.active:focus { 
-                background: #ea2803; 
-            }
-
-            .form-wizard .btn.btn-previous,
-            .form-wizard .btn.btn-previous:focus,
-            .form-wizard .btn.btn-previous:active:focus, 
-            .form-wizard .btn.btn-previous.active:focus { 
-                background: #bbb;
-            }
-
-            .form-wizard .success h3{
-                color: #4F8A10;
-                text-align: center;
-                margin: 20px auto !important;
-            }
-            .form-wizard .success .success-icon {
-                color: #4F8A10;
-                font-size: 100px;
-                border: 5px solid #4F8A10;
-                border-radius: 100px;
-                text-align: center !important;
-                width: 110px;
-                margin: 25px auto;
-            }
-            .form-wizard .progress-bar {
-                background-color: #ea2803;
-            }
-
-            .form-wizard-steps{ 
-                margin:auto; 
-                overflow: hidden; 
-                position: relative; 
-                margin-top: 20px;
-            }
-            .form-wizard-step{
-                padding-top:10px !important;
-                border:2px solid #fff;
-                background:#ccc;
-                -ms-transform: skewX(-30deg); /* IE 9 */
-                -webkit-transform: skewX(-30deg); /* Safari */
-                transform: skewX(-30deg); /* Standard syntax */
-            }
-            .form-wizard-step.active{
-                background:#ea2803;
-            }
-            .form-wizard-step.activated{
-                background:#ea2803;
-            }
-            .form-wizard-progress { 
-                position: absolute; 
-                top: 36px;
-                left: 0; 
-                width: 100%; 
-                height: 0px; 
-                background: #ea2803;
-            }
-            .form-wizard-progress-line { 
-                position: absolute; 
-                top: 0; 
-                left: 0; 
-                height: 0px; 
-                background: #ea2803; 
-            }
-
-            .form-wizard-tolal-steps-3 .form-wizard-step { 
-                position: relative;
-                float: left; 
-                width: 33.33%; 
-                padding: 0 5px; 
-            }
-            .form-wizard-tolal-steps-4 .form-wizard-step { 
-                position: relative; 
-                float: left; 
-                width: 25%; 
-                padding: 0 5px; 
-            }
-            .form-wizard-tolal-steps-5 .form-wizard-step { 
-                position: relative;
-                float: left;
-                width: 20%;
-                padding: 0 5px;
-            }
-
-            .form-wizard-step-icon {
-                display: inline-block;
-                width: 40px; 
-                height: 40px; 
-                margin-top: 4px; 
-                background: #ddd;
-                font-size: 16px; 
-                color: #777; 
-                line-height: 40px;
-                -moz-border-radius: 50%; 
-                -webkit-border-radius: 50%; 
-                border-radius: 50%;
-                -ms-transform: skewX(30deg); /* IE 9 */
-                -webkit-transform: skewX(30deg); /* Safari */
-                transform: skewX(30deg); /* Standard syntax */
-            }
-            .form-wizard-step.activated .form-wizard-step-icon {
-                background: #ea2803; 
-                border: 1px solid #fff; 
-                color: #fff; 
-                line-height: 38px;
-            }
-            .form-wizard-step.active .form-wizard-step-icon {
-                background: #fff; 
-                border: 1px solid #fff; 
-                color: #ea2803; 
-                line-height: 38px;
-            }
-
-            .form-wizard-step p { 
-                color: #fff;
-                -ms-transform: skewX(30deg); /* IE 9 */
-                -webkit-transform: skewX(30deg); /* Safari */
-                transform: skewX(30deg); /* Standard syntax */
-            }
-            .form-wizard-step.activated p { color: #fff; }
-            .form-wizard-step.active p { color: #fff; }
-
-            .form-wizard fieldset { 
-                display: none; 
-                text-align: left; 
-                border:0px !important
-            }
-
-            .form-wizard-buttons { text-align: right; }
-
-            .form-wizard .input-error { border-color: #ea2803;}
-
-            /** image uploader **/
-            .image-upload a[data-action] {
-                cursor: pointer;
-                color: #555;
-                font-size: 18px;
-                line-height: 24px;
-                transition: color 0.2s;
-            }
-            .image-upload a[data-action] i {
-                width: 1.25em;
-                text-align: center;
-            }
-            .image-upload a[data-action]:hover {
-                color: #ea2803;
-            }
-            .image-upload a[data-action].disabled {
-                opacity: 0.35;
-                cursor: default;
-            }
-            .image-upload a[data-action].disabled:hover {
-                color: #555;
-            }
-            .settings_wrap{
-                margin-top:20px;
-            }
-            .image_picker .settings_wrap {
-                overflow: hidden;
-                position: relative;
-            }
-            .image_picker .settings_wrap .drop_target,
-            .image_picker .settings_wrap .settings_actions {
-                float: left;
-            }
-            .image_picker .settings_wrap .drop_target {
-                margin-right: 18px;
-            }
-            .image_picker .settings_wrap .settings_actions {
-                float: left;
-                margin-top: 100px;
-                margin-left: 20px;
-            }
-            .settings_actions.vertical a {
-                display: block;
-            }
-            .drop_target {
-                position: relative;
-                cursor: pointer;
-                transition: all 0.2s;
-                width: 250px;
-                height: 250px;
-                background: #f2f2f2;
-                border-radius: 100%;
-                margin: 0 auto 25px auto;
-                overflow: hidden;
-                border: 8px solid #E0E0E0;
-            }
-            .drop_target input[type="file"] {
-                visibility: hidden;
-            }
-            .drop_target::before {
-                content: 'Drop Hear';
-                font-family: FontAwesome;
-                position: absolute;
-                display: block;
-                width: 100%;
-                line-height: 220px;
-                text-align: center;
-                font-size: 40px;
-                color: rgba(0, 0, 0, 0.3);
-                transition: color 0.2s;
-            }
-            .drop_target:hover,
-            .drop_target.dropping {
-                background: #f80;
-                border-top-color: #cc6d00;
-            }
-            .drop_target:hover:before,
-            .drop_target.dropping:before {
-                color: rgba(0, 0, 0, 0.6);
-            }
-            .drop_target .image_preview {
-                width: 100%;
-                height: 100%;
-                background: no-repeat center;
-                background-size: contain;
-                position: relative;
-                z-index: 2;
-            }
-        </style>
+        <link rel="stylesheet" href="<?php echo base_url('assets/css/shahbazstyle sheet.css'); ?>">
     </head>
     <body>
 
@@ -430,7 +42,6 @@
                     </div>
                     <div class="col-12 col-md-10 d-none d-xl-block">
                         <nav class="site-navigation position-relative text-right" role="navigation">
-
                             <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
                                 <li class="active"><a href="<?php echo base_url(); ?>">Home</a></li>
                                 <li><a href="<?php echo base_url('welcome/listings'); ?>">Ads</a></li>
@@ -439,11 +50,9 @@
                                 </li>
                                 <li><a href="<?php echo base_url('welcome/blog'); ?>">Blog</a></li>
                                 <li><a href="<?php echo base_url('welcome/contact'); ?>">Contact</a></li>
-
-                                <li class="ml-xl-3 login"><a href="login"><span class="border-left pl-xl-4"></span>Log In</a></li>
-                                <li><a href="<?php echo base_url('register'); ?>">Register</a></li>
-
-                                <li><a href="#" class="cta"><span class="bg-primary text-white rounded">+ Post an Ad</span></a></li>
+                                <li class="ml-xl-3 login"><a href="<?php echo base_url('Welcome/login'); ?>"><span class="border-left pl-xl-4"></span>Log In</a></li>
+                                <li><a href="<?php echo base_url('Welcome/register'); ?>">Register</a></li>
+                                <li><a href="<?php echo base_url('post/add'); ?>" class="cta"><span class="bg-primary text-white rounded">+ Post an Ad</span></a></li>
                             </ul>
                         </nav>
                     </div>
@@ -478,8 +87,6 @@
                     </div>
                 </div>
             </div> 
-
-
             <div class="site-section bg-light">
                 <div class="container">
                     <div class="container-fluid">
@@ -521,7 +128,7 @@
 
                                                 <div class="form-group">
                                                     <div>
-                                                        <select id="category" class="form-control" value="<?php echo isset($_SESSION["category"]) ? $_SESSION["category"] : ''; ?>" name="category" required="required">
+                                                        <select required id="category" class="form-control" value="<?php echo isset($_SESSION["category"]) ? $_SESSION["category"] : ''; ?>" name="category">
                                                             <option>Select A Category</option>
                                                             <option value="Vehicals">Vehicals</option>
                                                             <option value="Rent">For Rent</option>
@@ -534,9 +141,9 @@
                                                             <option value="Comunity">Comunity</option>                                                           
                                                         </select>
                                                     </div>
-                                                    
+
                                                     <div id="Vehicals" style="margin-top:5px;">
-                                                        <select class="form-control" value="<?php echo isset($_SESSION["Vehicals"]) ? $_SESSION["Vehicals"] : ''; ?>" name="Vehicals">
+                                                        <select class="form-control" name="Vehicals">
                                                             <option>Sub Category</option>
                                                             <option value="Aircraft">Aircraft</option>
                                                             <option value="Automotive">Automotive Items & Parts</option>
@@ -554,7 +161,7 @@
                                                         </select>
                                                     </div>
                                                     <div id="Rent" class="Rent" style="margin-top:5px;">
-                                                        <select class="form-control" value="<?php echo isset($_SESSION["Rent"]) ? $_SESSION["Rent"] : ''; ?>" name="Rent">
+                                                        <select class="form-control" name="Rent">
                                                             <option>A Category</option>
                                                             <option value="Apartments">Apartments</option>
                                                             <option value="Commercial Lease">Commercial Lease</option>
@@ -568,7 +175,7 @@
                                                         </select>
                                                     </div>
                                                     <div id="Pets" class="Pets" style="margin-top:5px;">
-                                                        <select class="form-control" value="<?php echo isset($_SESSION["Pets"]) ? $_SESSION["Pets"] : ''; ?>" name="Pets">
+                                                        <select class="form-control" name="Pets">
                                                             <option>Select A Category</option>
                                                             <option value="Birds">Birds</option>
                                                             <option value="Cats">Cats</option>
@@ -582,9 +189,9 @@
                                                         </select>
                                                     </div>
                                                     <div id="Personal" class="Personal" style="margin-top:5px;">
-                                                        <select class="form-control" value="<?php echo isset($_SESSION["Personal"]) ? $_SESSION["Personal"] : ''; ?>" name="Personal">
+                                                        <select class="form-control" name="Personal">
                                                             <option>Select A Category</option>
-                                                           <option value="Casual Dating">Casual Dating</option>
+                                                            <option value="Casual Dating">Casual Dating</option>
                                                             <option value="Men Seeking Men">Men Seeking Men</option>
                                                             <option value="Men Seeking Women">Men Seeking Women</option>
                                                             <option value="Missed Connections">Missed Connections</option>
@@ -593,7 +200,7 @@
                                                         </select>
                                                     </div>
                                                     <div id="For_Sale" class="For_Sale" style="margin-top:5px;">
-                                                        <select class="form-control" value="<?php echo isset($_SESSION["For_Sale"]) ? $_SESSION["For_Sale"] : ''; ?>" name="For_Sale">
+                                                        <select class="form-control" name="For_Sale">
                                                             <option>Select A Category</option>
                                                             <option value="Appliances">Appliances</option>
                                                             <option value="Art & Crafts">Art & Crafts</option>
@@ -626,7 +233,7 @@
                                                         </select>
                                                     </div>
                                                     <div id="Jobs" class="Jobs" style="margin-top:5px;">
-                                                        <select class="form-control" value="<?php echo isset($_SESSION["Jobs"]) ? $_SESSION["Jobs"] : ''; ?>" name="Jobs">
+                                                        <select class="form-control" name="Jobs">
                                                             <option>Select A Category</option>
                                                             <option value="Accounting & Bookkeeping Jobs">Accounting & Bookkeeping Jobs</option>
                                                             <option value="Business Opportunities">Business Opportunities</option>
@@ -655,7 +262,7 @@
                                                         </select>
                                                     </div>
                                                     <div id="Real_Estate" class="Real_Estate" style="margin-top:5px;">
-                                                        <select class="form-control" value="<?php echo isset($_SESSION["Real_Estate"]) ? $_SESSION["Real_Estate"] : ''; ?>" name="Real_Estate">
+                                                        <select class="form-control" name="Real_Estate">
                                                             <option>Select A Category</option>
                                                             <option value="Commercial Real Estate">Commercial Real Estate</option>
                                                             <option value="Condos For Sale">Condos For Sale</option>
@@ -671,9 +278,9 @@
                                                         </select>
                                                     </div>
                                                     <div id="Services" class="Services" style="margin-top:5px;">
-                                                        <select class="form-control" value="<?php echo isset($_SESSION["Services"]) ? $_SESSION["Services"] : ''; ?>" name="Services">
+                                                        <select class="form-control" name="Services">
                                                             <option>Select A Category</option>
-                                                           <option value="Automotive Services">Automotive Services</option>
+                                                            <option value="Automotive Services">Automotive Services</option>
                                                             <option value="Beauty & Salon Services">Beauty & Salon Services</option>
                                                             <option value="Caregivers & Baby Sitting">Caregivers & Baby Sitting</option>
                                                             <option value="Cleaning Services">Cleaning Services</option>
@@ -694,7 +301,7 @@
                                                         </select>
                                                     </div>
                                                     <div id="Comunity" class="Comunity" style="margin-top:5px;">
-                                                        <select class="form-control" value="<?php echo isset($_SESSION["Comunity"]) ? $_SESSION["Comunity"] : ''; ?>" name="Comunity">
+                                                        <select class="form-control" name="Comunity">
                                                             <option>Select A Category</option>
                                                             <option value="Announcements">Announcements</option>
                                                             <option value="Carpool">Carpool</option>
@@ -816,7 +423,7 @@
         <script src="<?php echo base_url('assets/js/aos.js'); ?>"></script>
         <script src="<?php echo base_url('assets/js/rangeslider.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets/js/main.js'); ?>"></script>
-   <script>
+        <script>
                                         "use strict";
                                         function scroll_to_class(element_class, removed_height) {
                                             var scroll_to = $(element_class).offset().top - removed_height;
@@ -846,7 +453,7 @@
                                             $('.form-wizard .required').on('focus', function () {
                                                 $(this).removeClass('input-error');
                                             });
-// next step
+                                            // next step
                                             $('.form-wizard .btn-next').on('click', function () {
                                                 var parent_fieldset = $(this).parents('fieldset');
                                                 var next_step = true;
@@ -878,7 +485,7 @@
                                                 }
 
                                             });
-// previous step
+                                            // previous step
                                             $('.form-wizard .btn-previous').on('click', function () {
                                                 // navigation steps / progress steps
                                                 var current_active_step = $(this).parents('.form-wizard').find('.form-wizard-step.active');
@@ -894,7 +501,7 @@
                                                     scroll_to_class($('.form-wizard'), 20);
                                                 });
                                             });
-// submit
+                                            // submit
                                             $('.form-wizard').on('submit', function (e) {
 
                                                 // fields validation
@@ -910,7 +517,7 @@
 
                                             });
                                         });
-// image uploader scripts 
+                                        // image uploader scripts 
 
                                         var $dropzone = $('.image_picker'),
                                                 $droptarget = $('.drop_target'),
@@ -962,7 +569,7 @@
                                                 $droptarget.removeClass('dropped');
                                             }
                                         });
-// image uploader scripts
+                                        // image uploader scripts
         </script>
         <script>
             $('docoment').ready(function () {
@@ -975,7 +582,7 @@
                 $('#Real_Estate').hide();
                 $('#Services').hide();
                 $('#Comunity').hide();
-                
+
                 $('#category').change(function () {
                     $('#Vehicals').hide();
                     $('#Rent').hide();

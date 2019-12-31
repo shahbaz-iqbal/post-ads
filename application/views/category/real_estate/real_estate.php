@@ -30,7 +30,11 @@
         <div class="site-section" style="padding: 0px;">
             <div class="row mb-5" style="padding: 50px;">
                 <div class="col-md-7 text-left border-primary">
-                    <h2 class="font-weight-light text-primary">Ads</h2>
+                    <h2 class="font-weight-light text-primary">
+                        <?php if (!empty($data)) { ?>
+                            <?php echo $data[0]->category; ?>
+                        <?php } ?>
+                    </h2>
                 </div>
             </div>
             <div class="container">
@@ -43,19 +47,20 @@
                                     <div class="col-lg-6 list-item">
 
                                         <div class="d-block d-md-flex listing vertical">
-                                            <a href="<?php echo base_url(); ?>category/vehical_detail/<?php echo $value->id; ?>" class="img d-block" style="background-image: url(<?php echo base_url('assets/images/img_1.jpg'); ?>)"></a>
+                                            <a href="<?php echo base_url(); ?>category/vehical_detail/<?php echo $value->id; ?>" class="img d-block" style=" background-image: url(<?php echo base_url(); ?>assets/images/post_img/<?php echo $value->file; ?>)"height: 193;></a>
+        <!--<img src="<?php echo base_url(); ?>assets/images/post_img/<?php echo $value->file; ?>" alt="Image" class="img-fluid" style="height: 190px; width:100%;">  <a href="<?php echo base_url(); ?>category/vehical_detail/<?php echo $value->id; ?>" class="img d-block" style="background-image: url(<?php echo base_url(); ?>assets/images/post_img/<?php echo $value->file; ?>)"></a>-->
                                             <div class="lh-content">
                                                 <span class="category a"><?php echo $value->sub_category; ?></span>
                                                 <h3><a href="<?php echo base_url(); ?>category/vehical_detail/<?php echo $value->id; ?>"><?php echo $value->title; ?></a></h3>
                                                 <address><?php echo $value->address; ?></address>
-<!--                                                <p class="mb-0">
+                                                <p class="mb-0">
                                                     <span class="icon-star text-warning"></span>
                                                     <span class="icon-star text-warning"></span>
                                                     <span class="icon-star text-warning"></span>
                                                     <span class="icon-star text-warning"></span>
                                                     <span class="icon-star text-secondary"></span>
                                                     <span class="review"></span>
-                                                </p>-->
+                                                </p>
                                             </div>
                                         </div>
 
@@ -66,8 +71,7 @@
                             }
                             ?>
                         </div>
-
-                       <div class="custom-pagination">
+                        <div class="custom-pagination">
                             <?php echo $pagination; ?>
                         </div>
 
@@ -89,10 +93,10 @@
 
                         <div class="mb-5">
                             <h3 class="h5 text-black mb-3">Filters</h3>
-                            <form action="<?php echo base_url(); ?>Welcome/listings" method="post" id="listings">
-                                 <input type="hidden" name="search_type" id="search_type" value="1" />
+                            <form action="<?php echo base_url(); ?>Category/real_estate" method="post" id="realstate_form" >
+                                <input type="hidden" name="search_type" id="search_type" value="1" />
                                 <div class="form-group">
-                                    <input type="text" name="search" placeholder="What are you looking for?" class="form-control" >
+                                    <input type="text" name="search" value="<?php echo (isset($this->session->realstate_search) ? $this->session->rent_search : ""); ?>" placeholder="What are you looking for?" class="form-control" >
                                 </div>
                                 <!--                                <div class="form-group">
                                                                     <div class="select-wrap">
@@ -211,62 +215,38 @@
 
 <?php $this->load->view('footer'); ?>
 <script>
-    $(document).ready(function () {
-        $("#myInput").on("keyup", function () {
-            var value = $(this).val().toLowerCase();
-            $("#myDIV *").filter(function () {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                $("#pagination-container").hide();
-            });
-        });
-    });
+//$(document).ready(function(){
+//  $("#myInput").on("keyup", function() {
+//    var value = $(this).val().toLowerCase();
+//    $("#myDIV *").filter(function() {
+//      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+//    });
+//  });
+//});
 </script>
 <script>
-    $(document).ready(function () {
-        $("#selected").on("change", function () {
-            var value = $(this).val().toLowerCase();
-            $("#myDIV *").filter(function () {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                //$("#myDIV").show();
-                //$("#pagination-container").hide();
-            });
-        });
-    });
+//$(document).ready(function(){
+//  $("#selected").on("change", function() {
+//    var value = $(this).val().toLowerCase();
+//    $("#myDIV *").filter(function() {
+//      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+//    });
+//  });
+//});
 </script>
-<!--<script>
-    $(document).ready(function () {
-        $("#location").on("change", function () {
-            var value = $(this).val().toLowerCase();
-            $("#myDIV *").filter(function () {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-        });
-    });
-</script>-->
-<!--<script>
-// jQuery Plugin: http://flaviusmatis.github.io/simplePagination.js/
-
-    var items = $(".list-wrapper .list-item");
-    var numItems = items.length;
-    var perPage = 4;
-
-    items.slice(perPage).hide();
-
-    $('#pagination-container').pagination({
-        items: numItems,
-        itemsOnPage: perPage,
-        prevText: "&laquo;",
-        nextText: "&raquo;",
-        onPageClick: function (pageNumber) {
-            var showFrom = perPage * (pageNumber - 1);
-            var showTo = showFrom + perPage;
-            items.hide().slice(showFrom, showTo).show();
-        }
-    });
-</script>-->
-                <script>
+<script>
+//$(document).ready(function(){
+//  $("#location").on("change", function() {
+//    var value = $(this).val().toLowerCase();
+//    $("#myDIV *").filter(function() {
+//      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+//    });
+//  });
+//});
+</script>
+<script>
 function reset_search() {
     $('#search_type').val('0');
-    $('#listings').submit();
+    $('#realstate_form').submit();
 }
-</script>   
+</script>

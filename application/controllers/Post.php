@@ -17,6 +17,7 @@ class Post extends CI_Controller {
         $data['Real_Estate'] = $this->input->post('Real_Estate');
         $data['Services'] = $this->input->post('Services');
         $data['Comunity'] = $this->input->post('Comunity');
+
         $this->session->set_userdata($data);
         redirect("./post/load_1/", "refresh");
     }
@@ -64,13 +65,14 @@ class Post extends CI_Controller {
         $config['file_name'] = $new_name;
         $config['upload_path'] = './assets/images/post_img/';
         $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size'] = 1000;
+        $config['max_size'] = 2000;
         $this->upload->initialize($config);
         if (!$this->upload->do_upload('image')) {
             $dataerror = array('error' => $this->upload->display_errors());
         } else {
-            $data = array('upload_data' => $this->upload->data());
+            $dataa = array('upload_data' => $this->upload->data());
         }
+        $data['imagename'] = $new_name;
         $this->session->set_userdata($data);
         redirect("./post/load_5/", "refresh");
     }
@@ -78,7 +80,6 @@ class Post extends CI_Controller {
     public function submit() {
         $data['feature'] = $this->input->post('feature');
         $this->session->set_userdata($data);
-        
         $category = $this->session->userdata('category');
         $vehical = $this->session->userdata('vehical');
         $Rent = $this->session->userdata('Rent');
@@ -89,26 +90,8 @@ class Post extends CI_Controller {
         $Real_Estate = $this->session->userdata('Real_Estate');
         $Services = $this->session->userdata('Services');
         $Comunity = $this->session->userdata('Comunity');
-        
-        
-        $title = $this->session->userdata('title');
-        $web = $this->session->userdata('web');
-        $discription = $this->session->userdata('discription');
-        $address = $this->session->userdata('address');
-        $country = $this->session->userdata('country');
-        $state = $this->session->userdata('state');
-        $city = $this->session->userdata('city');
-        $zipcode = $this->session->userdata('zipcode');
-        $price = $this->session->userdata('price');
-        $currency = $this->session->userdata('currency');
-        $name = $this->session->userdata('name');
-        $email = $this->session->userdata('email');
-        $image1 = $this->session->userdata('upload_data');
-        
-        $image = $image1['file_name'];
-
-        $feature = $this->session->userdata('feature');
-        $saveCat = "";
+       
+  $saveCat = "";
         if($category == "Vehicals") {
             $saveCat = $vehical;
         } else if($category == "Rent") {
@@ -128,6 +111,23 @@ class Post extends CI_Controller {
         } else if($category == "Comunity") {
             $saveCat = $Comunity;
         }
+        $title = $this->session->userdata('title');
+        $web = $this->session->userdata('web');
+        $discription = $this->session->userdata('discription');
+        $address = $this->session->userdata('address');
+        $country = $this->session->userdata('country');
+        $state = $this->session->userdata('state');
+        $city = $this->session->userdata('city');
+        $zipcode = $this->session->userdata('zipcode');
+        $price = $this->session->userdata('price');
+        $currency = $this->session->userdata('currency');
+        $name = $this->session->userdata('name');
+        $email = $this->session->userdata('email');
+        $image1 = $this->session->userdata('imagename');
+        $image = $image1;
+        $feature = $this->session->userdata('feature');
+
+       
         $data = array(
             'category' => $category,
             'sub_category' => $saveCat,
